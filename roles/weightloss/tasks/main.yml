@@ -1,0 +1,14 @@
+---
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+    state: "absent"
+    autoremove: "yes"
+    purge: "yes"
+  vars:
+    packages:
+    - libx11-.*
+    - cups-common
+    - firefox
+  
+

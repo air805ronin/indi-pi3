@@ -1,0 +1,22 @@
+---
+- name: Add INDI repository
+  apt_repository:
+    repo: "ppa:mutlaqja/ppa"
+    state: "present"
+
+- name: Install INDI Dependencies
+  apt:
+    name: "{{ packages }}"
+    state: "present"
+  vars:
+    packages:
+    - indi-full
+    - libindi
+    - python3-pip
+    - virtualenv
+    - setuptools
+
+- name: Install INDI webserver
+  pip:
+    name: "indiweb"
+
